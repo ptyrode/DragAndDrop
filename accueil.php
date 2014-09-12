@@ -35,6 +35,7 @@ $result = mysql_query($sql) or die(mysql_error());
 			<div class="page-header">
 				<h1>Drag and Drop</h1>
 			</div>
+			
 			<div align="right">
 				<a href="liste_commandes.php" id="deco" class="btn btn-large">Liste des commandes</a>
 				<a href="deconnexion.php" id="deco" class="btn btn-large">Déconnexion</a>
