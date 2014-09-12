@@ -87,3 +87,13 @@ INSERT INTO produit VALUES
 (null, 'Macbook', 4, 'apple/macbook.png', 1500),
 (null, 'Macpro', 4, 'apple/macpro.png', 2500),
 (null, 'Macmini', 4, 'apple/macmini.png', 1200);
+
+INSERT INTO commande VALUES
+(null, 2, '0'),
+(null, 2, '1'),
+(null, 3, '0'),
+(null, 2, '1'),
+(null, 3, '1'),
+(null, 2, '0'),
+(null, 3, '1'),
+(null, 3, '0');

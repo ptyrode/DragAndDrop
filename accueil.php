@@ -33,53 +33,52 @@ $result = mysql_query($sql) or die(mysql_error());
 		<div class="container">
 
 			<div class="page-header">
-				<h1>Drag and Drop</h1>
+				<h1>Accueil</h1>
 			</div>
 			
 			<div align="right">
-				<a href="commandes/liste_commandes.php" id="deco" class="btn btn-large">Liste des commandes</a>
-				<a href="connexion/deconnexion.php" id="deco" class="btn btn-large">Déconnexion</a>
+				<a href="commandes/liste_commandes.php" class="btn btn-large">Commandes</a>
+				<a href="connexion/deconnexion.php" class="btn btn-large">Déconnexion</a>
 			</div>
 
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
-				<?php
-				$i = 0;
-				while ($row = mysql_fetch_array($result)) {
-					if ($i == 0)
-						echo "<li class=\"active\">";
-					else
-						echo "<li>";
-					echo "<a href=\"#" . $row['mini_categorie'] . "\" role=\"tab\" data-toggle=\"tab\">" . $row['libelle_categorie'] . "</a>";
-					echo "</li>";
-					$i = 1;
-				}
-			?>
-</ul>
-
-<div class="row">
-	<!-- Tab panes -->
-	<div class="tab-content">
-		<?php
-		$i = 0;
-		mysql_data_seek($result, 0);
-		while ($row = mysql_fetch_array($result)) {
-			if ($i == 0)
-				echo "<div class=\"tab-pane active\" id=\"" . $row['mini_categorie'] . "\">";
-			else
-				echo "<div class=\"tab-pane\" id=\"" . $row['mini_categorie'] . "\">";
-			echo "<div id=\"drag\" class=\"connected col-md-5\">";
-			$sql1 = "SELECT p.libelle_produit, p.image, p.prix FROM produit p, categorie c WHERE p.id_categorie = c.id_categorie and c.id_categorie=" . $row['id_categorie'];
-			$result1 = mysql_query($sql1) or die(mysql_error());
-			while ($row1 = mysql_fetch_array($result1)) {
-				echo "<div class=\"col-xs-6 col-md-4\">";
-				echo "<img src=\"assets/img/" . $row1['image'] . "\" alt=\"\" data-libelle=\"" . $row1['libelle_produit'] . "\" data-prix=\"" . $row1['prix'] . "\">";
-				echo "</div>";
+			<?php
+			$i = 0;
+			while ($row = mysql_fetch_array($result)) {
+				if ($i == 0)
+					echo "<li class=\"active\">";
+				else
+					echo "<li>";
+				echo "<a href=\"#" . $row['mini_categorie'] . "\" role=\"tab\" data-toggle=\"tab\">" . $row['libelle_categorie'] . "</a>";
+				echo "</li>";
+				$i = 1;
 			}
-			echo "</div></div>";
-			$i = 1;
-		}
-	?>
+			?>
+			</ul>
+			<div class="row">
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<?php
+					$i = 0;
+					mysql_data_seek($result, 0);
+					while ($row = mysql_fetch_array($result)) {
+						if ($i == 0)
+							echo "<div class=\"tab-pane active\" id=\"" . $row['mini_categorie'] . "\">";
+						else
+							echo "<div class=\"tab-pane\" id=\"" . $row['mini_categorie'] . "\">";
+						echo "<div id=\"drag\" class=\"connected col-md-5\">";
+						$sql1 = "SELECT p.libelle_produit, p.image, p.prix FROM produit p, categorie c WHERE p.id_categorie = c.id_categorie and c.id_categorie = " . $row['id_categorie'];
+						$result1 = mysql_query($sql1) or die(mysql_error());
+						while ($row1 = mysql_fetch_array($result1)) {
+							echo "<div class=\"col-xs-6 col-md-4\">";
+							echo "<img src=\"assets/img/" . $row1['image'] . "\" alt=\"\" data-libelle=\"" . $row1['libelle_produit'] . "\" data-prix=\"" . $row1['prix'] . "\">";
+							echo "</div>";
+						}
+						echo "</div></div>";
+						$i = 1;
+					}
+				?>
 </div>
 <div id="drop" class="connected col-md-5"></div>
 <div id="cart" class="col-md-2">

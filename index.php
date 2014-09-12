@@ -27,7 +27,7 @@ if (isset($_SESSION["email"])) {
 		<div class="loginbox radius">
 			<div class="loginboxinner radius">
 				<div class="loginheader">
-					<h1 class="title">Login</h1>
+					<h1 class="title">Drag and Drop</h1>
 				</div><!--loginheader-->
 
 				<div class="loginform">

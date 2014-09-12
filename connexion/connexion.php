@@ -5,7 +5,7 @@ include ('../include/config.inc.php');
 
 // Les deux champs ont été remplis
 if (isset($_POST["email"]) && isset($_POST["mdp"])) {
-	$sql = "SELECT COUNT(id_utilisateur), email, mdp, statut FROM utilisateur WHERE email='" . $_POST["email"] . "' GROUP BY id_utilisateur";
+	$sql = "SELECT COUNT(id_utilisateur), id_utilisateur, email, mdp, statut FROM utilisateur WHERE email='" . $_POST["email"] . "' GROUP BY id_utilisateur";
 	$result = mysql_query($sql) or die(mysql_error());
 	$row = mysql_fetch_array($result);
 
@@ -20,6 +20,7 @@ if (isset($_POST["email"]) && isset($_POST["mdp"])) {
 		// Connexion effective $_SESSION[email]
 		$_SESSION["id_utilisateur"] = $row["id_utilisateur"];
 		$_SESSION["email"] = $row["email"];
+		$_SESSION["statut"] = $row["statut"];
 		header("Location:../accueil.php");
 		exit ;
 	} else {
