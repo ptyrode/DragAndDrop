@@ -32,7 +32,7 @@ if (isset($_SESSION["email"])) {
 
 				<div class="loginform">
 
-					<form id="login" action="connexion.php" method="post">
+					<form id="login" action="connexion/connexion.php" method="post">
 						<p>
 							<label for="email" class="bebas">Email</label>
 							<input type="text" id="email" name="email" value="" class="radius2" />

@@ -1,7 +1,7 @@
 <?php session_start();
 
 // Connexion à la base
-include ('./include/config.inc.php');
+include ('../include/config.inc.php');
 
 // Les deux champs ont été remplis
 if (isset($_POST["email"]) && isset($_POST["mdp"])) {
@@ -20,14 +20,14 @@ if (isset($_POST["email"]) && isset($_POST["mdp"])) {
 		// Connexion effective $_SESSION[email]
 		$_SESSION["id_utilisateur"] = $row["id_utilisateur"];
 		$_SESSION["email"] = $row["email"];
-		header("Location:accueil.php");
+		header("Location:../accueil.php");
 		exit ;
 	} else {
-		header("Location:index.php");
+		header("Location:../index.php");
 		exit ;
 	}
 } else {
-	header("Location:index.php");
+	header("Location:../index.php");
 	exit ;
 }
 ?>

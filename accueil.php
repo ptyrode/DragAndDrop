@@ -37,8 +37,8 @@ $result = mysql_query($sql) or die(mysql_error());
 			</div>
 			
 			<div align="right">
-				<a href="liste_commandes.php" id="deco" class="btn btn-large">Liste des commandes</a>
-				<a href="deconnexion.php" id="deco" class="btn btn-large">Déconnexion</a>
+				<a href="commandes/liste_commandes.php" id="deco" class="btn btn-large">Liste des commandes</a>
+				<a href="connexion/deconnexion.php" id="deco" class="btn btn-large">Déconnexion</a>
 			</div>
 
 			<!-- Nav tabs -->
