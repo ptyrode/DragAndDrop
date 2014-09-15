@@ -79,23 +79,6 @@ $result = mysql_query($sql) or die(mysql_error());
 					$i = 1;
 				}
 				?>
-<<<<<<< HEAD
-	</div>
-	<div id="drop" class="connected col-md-5"></div>
-	<div id="cart" class="col-md-2">
-		<h3>Panier</h3>
-		<br>
-		<div class="placeholder" id="panier"></div>
-		<br>
-		<div class="placeholder" id="total"></div>
-		<br>
-		<div class="placeholder" id="qrcode"></div>
-	</div>
-	</div>
-	</div>
-	<!-- /container -->
-	
-=======
 			</div>
 			<div id="drop" class="connected col-md-5"></div>
 			<div id="cart" class="col-md-2">
@@ -111,18 +94,11 @@ $result = mysql_query($sql) or die(mysql_error());
 	</div>
 	<!-- /container -->
 
->>>>>>> origin/project
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/jquery-ui/jquery-ui.min.js"></script>
 	<script src="assets/jquery-qrcode/jquery.qrcode-0.10.1.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.js"></script>
 	<script src="assets/js/script.js"></script>
-<<<<<<< HEAD
-	
-	</body>
-	</html>
-=======
 
 </body>
 </html>
->>>>>>> origin/project
