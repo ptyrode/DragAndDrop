@@ -22,7 +22,7 @@ $result = mysql_query($sql) or die(mysql_error());
 <meta name="author" content="">
 <link rel="icon" href="favicon.ico">
 
-<title>Drag and Drop</title>
+<title>Commandes</title>
 
 <!-- Bootstrap core CSS -->
 <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -40,8 +40,8 @@ $result = mysql_query($sql) or die(mysql_error());
 		</div>
 
 		<div align="right">
-			<a href="../accueil.php" class="btn btn-large">Accueil</a> <a
-				href="../connexion/deconnexion.php" class="btn btn-large">Déconnexion</a>
+			<a href="../accueil.php" class="btn btn-large">Accueil</a>
+			<a href="../connexion/deconnexion.php" class="btn btn-large">Déconnexion</a>
 		</div>
 
 		<table class="table table-striped">
@@ -83,11 +83,11 @@ $result = mysql_query($sql) or die(mysql_error());
 	</div>
 	<!-- /container -->
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/jquery-ui/jquery-ui.min.js"></script>
-	<script src="assets/jquery-qrcode/jquery.qrcode-0.10.1.min.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.js"></script>
-	<script src="assets/js/script.js"></script>
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/jquery-ui/jquery-ui.min.js"></script>
+	<script src="../assets/jquery-qrcode/jquery.qrcode-0.10.1.min.js"></script>
+	<script src="../assets/bootstrap/js/bootstrap.js"></script>
+	<script src="../assets/js/script.js"></script>
 
 </body>
 </html>

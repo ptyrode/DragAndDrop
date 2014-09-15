@@ -29,3 +29,15 @@ div#cart, #drag, #drop {
 div#cart {
 	padding-top: 0px;
 }
+
+span.spgauche {
+	float: left;
+}
+
+span.spdroite {
+	float: right;
+}
+
+form.form-horizontal {
+	padding: 15px;
+}

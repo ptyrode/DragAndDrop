@@ -19,7 +19,7 @@ $result = mysql_query($sql) or die(mysql_error());
 <meta name="author" content="">
 <link rel="icon" href="favicon.ico">
 
-<title>Drag and Drop</title>
+<title>Accueil</title>
 
 <!-- Bootstrap core CSS -->
 <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -90,13 +90,16 @@ $result = mysql_query($sql) or die(mysql_error());
 				<br>
 				<div class="placeholder" id="qrcode"></div>
 			</div>
+			<input type="hidden" name="nb" id="nb" value="0">
+			<input type="hidden" name="id" id="id" value="<?php echo $_SESSION["id_utilisateur"]?>">
 		</div>
 	</div>
 	<!-- /container -->
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/jquery-ui/jquery-ui.min.js"></script>
-	<script src="assets/jquery-qrcode/jquery.qrcode-0.10.1.min.js"></script>
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/jquery-ui/jquery-ui.js"></script>
+	<script src="assets/js/jquery.urlshortener.js"></script>
+	<script src="assets/js/jquery.qrcode.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.js"></script>
 	<script src="assets/js/script.js"></script>
 
