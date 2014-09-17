@@ -21,14 +21,23 @@ if (isset($_POST["email"]) && isset($_POST["mdp"])) {
 		$_SESSION["id_utilisateur"] = $row["id_utilisateur"];
 		$_SESSION["email"] = $row["email"];
 		$_SESSION["statut"] = $row["statut"];
-		header("Location:../accueil.php");
+		if (isset($_POST["livrasion"]))
+			header("Location:../commandes/livraison.php?id=" . $_POST["livraison"]);
+		else
+			header("Location:../accueil.php");
 		exit ;
 	} else {
-		header("Location:../index.php");
+		if (isset($_POST["livraison"]))
+			header("Location:../commandes/livraison.php?id=" . $_POST["livraison"]);
+		else
+			header("Location:../index.php");
 		exit ;
 	}
 } else {
-	header("Location:../index.php");
+	if (isset($_POST["livraison"]))
+		header("Location:../commandes/livraison.php?id=" . $_POST["livraison"]);
+	else
+		header("Location:../index.php");
 	exit ;
 }
 ?>

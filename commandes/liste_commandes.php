@@ -63,7 +63,7 @@ $result = mysql_query($sql) or die(mysql_error());
 				<?php
 				while ($row = mysql_fetch_array($result)) {
 					echo "<tr>";
-					echo "<td><a href=\"\" class=\"btn-large\">" . $row['id_commande'] . "</a></td>";
+					echo "<td><a href=\"commande.php?id=" . $row['id_commande'] . "\" class=\"btn-large\">" . $row['id_commande'] . "</a></td>";
 					if ($_SESSION["statut"] == 1)
 						echo "<td>" . $row['nom'] . "</td>";
 					if ($row['valide'] == 1)
@@ -71,23 +71,24 @@ $result = mysql_query($sql) or die(mysql_error());
 					else
 						echo "<td>PAS VALIDE</td>";
 					if ($_SESSION["statut"] != 1 && $row['valide'] != 1)
-						echo "<td><a href=\"\" class=\"btn-large\">Valider</a></td>";
+						echo "<td><a href=\"livraison.php?id=" . $row['id_commande'] . "\" class=\"btn-large\">Payer</a></td>";
 					else
 						echo "<td></td>";
 					echo "</tr>";
 				}
-				?>
-			</tbody>
-		</table>
+			?>
+</tbody>
+</table>
 
-	</div>
-	<!-- /container -->
+</div>
+<!-- /container -->
 
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/jquery-ui/jquery-ui.min.js"></script>
-	<script src="../assets/jquery-qrcode/jquery.qrcode-0.10.1.min.js"></script>
-	<script src="../assets/bootstrap/js/bootstrap.js"></script>
-	<script src="../assets/js/script.js"></script>
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/jquery-ui/jquery-ui.js"></script>
+<script src="../assets/js/jquery.urlshortener.js"></script>
+<script src="../assets/js/jquery.qrcode.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/js/script.js"></script>
 
 </body>
 </html>

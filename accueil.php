@@ -68,7 +68,7 @@ $result = mysql_query($sql) or die(mysql_error());
 					else
 						echo "<div class=\"tab-pane\" id=\"" . $row['mini_categorie'] . "\">";
 					echo "<div id=\"drag\" class=\"connected col-md-5\">";
-					$sql1 = "SELECT p.libelle_produit, p.image, p.prix FROM produit p, categorie c WHERE p.id_categorie = c.id_categorie and c.id_categorie = " . $row['id_categorie'];
+					$sql1 = "SELECT p.libelle_produit, p.image, p.prix FROM produit p, categorie c WHERE p.id_categorie = c.id_categorie AND c.id_categorie = " . $row['id_categorie'];
 					$result1 = mysql_query($sql1) or die(mysql_error());
 					while ($row1 = mysql_fetch_array($result1)) {
 						echo "<div class=\"col-xs-6 col-md-4\">";

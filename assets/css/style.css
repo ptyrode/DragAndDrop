@@ -41,3 +41,7 @@ span.spdroite {
 form.form-horizontal {
 	padding: 15px;
 }
+
+#msg {
+	color: #008000;
+}

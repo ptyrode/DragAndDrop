@@ -5,22 +5,38 @@ include ('../include/config.inc.php');
 
 if (isset($_POST['action'])) {
 
-}
+	$sql = "INSERT INTO commande VALUES (null, '" . $_POST["id"] . "', '" . $_POST["total"] . "', '0')";
+	$result = mysql_query($sql) or die(mysql_error());
 
-$nb = $_POST["nb"];
-for ($i = 1; $i <= $nb; $i++) {
-	echo $i . " : " . $_POST["produit" . $i] . "<br>";
-}
+	$sql1 = "SELECT MAX(id_commande) FROM commande";
+	$result1 = mysql_query($sql1) or die(mysql_error());
+	$row1 = mysql_fetch_array($result1);
 
-if ($_POST['action'] == 'enregistrer') {
-	echo "enregistrer";
-} else if ($_POST['action'] == 'payer') {
-	echo "payer";
-} else {
-	//invalid action!
-}
+	$id_commande = $row1[0];
 
-echo $_POST['id'];
+	$nb = $_POST["nb"];
+	for ($i = 1; $i <= $nb; $i++) {
+		
+		$sql = "SELECT id_produit FROM produit WHERE libelle_produit='" . $_POST["produit" . $i] . "'";
+		$result = mysql_query($sql) or die(mysql_error());
+		$row = mysql_fetch_array($result);
+		
+		$id_produit = $row[0];
+		
+		$sql1 = "INSERT INTO contient VALUES ('" . $id_commande . "', '" . $id_produit . "')";
+		$result1 = mysql_query($sql1) or die(mysql_error());
+	}
+
+	if ($_POST['action'] == 'enregistrer') {
+		header("Location:commande.php?id=" . $id_commande);
+		exit ;
+	} else if ($_POST['action'] == 'payer') {
+		header("Location:livraison.php?id=" . $id_commande);
+		exit ;
+	} else {
+		//invalid action!
+	}
+}
 
 // // Les deux champs ont été remplis
 // if (isset($_POST["email"]) && isset($_POST["mdp"])) {

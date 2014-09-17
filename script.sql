@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS contient;
 DROP TABLE IF EXISTS commande;
 DROP TABLE IF EXISTS produit;
 DROP TABLE IF EXISTS categorie;
+DROP TABLE IF EXISTS adresse;
 DROP TABLE IF EXISTS utilisateur;
 	
 CREATE TABLE utilisateur(
@@ -9,8 +10,21 @@ CREATE TABLE utilisateur(
 	nom VARCHAR(250),
 	email VARCHAR(250),
 	mdp VARCHAR(250),
-	statut ENUM('0','1'),
+	statut ENUM('0', '1'),
 	PRIMARY KEY (id_utilisateur));
+	
+CREATE TABLE adresse(
+	id_adresse INT NOT NULL AUTO_INCREMENT,
+	nom_adresse VARCHAR(250),
+	prenom_adresse VARCHAR(250),
+	rue_adresse VARCHAR(250),
+	code_adresse VARCHAR(250),
+	ville_adresse VARCHAR(250),
+	tel_adresse VARCHAR(250),
+	etat ENUM('0', '1', '2'),
+	id_utilisateur INT NOT NULL,
+	PRIMARY KEY (id_adresse),
+	FOREIGN KEY (id_utilisateur) references utilisateur(id_utilisateur));
 
 CREATE TABLE categorie(
 	id_categorie INT NOT NULL AUTO_INCREMENT,
@@ -30,7 +44,8 @@ CREATE TABLE produit(
 CREATE TABLE commande(
 	id_commande INT NOT NULL AUTO_INCREMENT,
 	id_utilisateur INT NOT NULL,
-	valide ENUM('0','1'),
+	total FLOAT,
+	valide ENUM('0', '1'),
 	PRIMARY KEY (id_commande),
 	FOREIGN KEY (id_utilisateur) references utilisateur(id_utilisateur));
 
@@ -44,6 +59,11 @@ INSERT INTO utilisateur VALUES
 (null, 'Pierrick', 'pierrick.tyrode@gmail.com', 'dac0b7162f804b82429712476b6f7d9f', '1'),
 (null, 'Michel', 'michel@gmail.com', '1354c5c626dfe462f9f18b9352d93c8f', '0'),
 (null, 'Roger', 'roger@gmail.com', '1494c5e663559353b12c68b0f62289e8', '0');
+
+INSERT INTO adresse VALUES
+(null, 'Tyrode', 'Pierrick', '27 rue du moulin', '25520', 'Ouhans', '0381699270', '0', 2),
+(null, 'Tyrode', 'Pierrick', '27 rue du moulin', '25520', 'Ouhans', '0381699270', '1', 2),
+(null, 'Tyrode', 'Pierrick', '27 rue du moulin', '25520', 'Ouhans', '0381699270', '2', 2);
 
 INSERT INTO categorie VALUES
 (null, 'Ballons', 'ballons'),
@@ -89,11 +109,11 @@ INSERT INTO produit VALUES
 (null, 'Macmini', 4, 'apple/macmini.png', 1200);
 
 INSERT INTO commande VALUES
-(null, 2, '0'),
-(null, 2, '1'),
-(null, 3, '0'),
-(null, 2, '1'),
-(null, 3, '1'),
-(null, 2, '0'),
-(null, 3, '1'),
-(null, 3, '0');
+(null, 2, 467, '0'),
+(null, 2, 879, '1'),
+(null, 3, 987, '0'),
+(null, 2, 343, '1'),
+(null, 3, 123, '1'),
+(null, 2, 109, '0'),
+(null, 3, 678, '1'),
+(null, 3, 432, '0');

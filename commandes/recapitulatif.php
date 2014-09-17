@@ -39,8 +39,7 @@
 			</div>
 
 			<div align="right">
-				<a href="../accueil.php" class="btn btn-large">Accueil</a><a
-				href="../connexion/deconnexion.php" class="btn btn-large">Déconnexion</a>
+				<a href="../accueil.php" class="btn btn-large">Accueil</a>
 			</div>
 			<div>
 				<form class="form-horizontal" role="form" action="valider_commande.php" method="post">
@@ -64,9 +63,10 @@
 		</div>
 		<!-- /container -->
 
-		<script src="../assets/js/jquery.min.js"></script>
-		<script src="../assets/jquery-ui/jquery-ui.min.js"></script>
-		<script src="../assets/jquery-qrcode/jquery.qrcode-0.10.1.min.js"></script>
+		<script src="../assets/js/jquery.js"></script>
+		<script src="../assets/jquery-ui/jquery-ui.js"></script>
+		<script src="../assets/js/jquery.urlshortener.js"></script>
+		<script src="../assets/js/jquery.qrcode.js"></script>
 		<script src="../assets/bootstrap/js/bootstrap.js"></script>
 		<script src="../assets/js/script.js"></script>
 
