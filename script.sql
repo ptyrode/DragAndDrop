@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS contient;
 DROP TABLE IF EXISTS commande;
+DROP TABLE IF EXISTS relais;
 DROP TABLE IF EXISTS produit;
 DROP TABLE IF EXISTS categorie;
 DROP TABLE IF EXISTS adresse;
@@ -40,6 +41,13 @@ CREATE TABLE produit(
 	prix FLOAT,
 	PRIMARY KEY (id_produit),
 	FOREIGN KEY (id_categorie) references categorie(id_categorie));
+	
+CREATE TABLE relais(
+	id_relais INT NOT NULL AUTO_INCREMENT,
+	libelle_relais VARCHAR(250),
+	latitude VARCHAR(250),
+	longitude VARCHAR(250),
+	PRIMARY KEY (id_relais));
 
 CREATE TABLE commande(
 	id_commande INT NOT NULL AUTO_INCREMENT,
@@ -107,6 +115,14 @@ INSERT INTO produit VALUES
 (null, 'Macbook', 4, 'apple/macbook.png', 1500),
 (null, 'Macpro', 4, 'apple/macpro.png', 2500),
 (null, 'Macmini', 4, 'apple/macmini.png', 1200);
+
+INSERT INTO relais VALUES
+(null, 'Restaurant l\'Oignon', '48.581430', '7.741366'),
+(null, 'Le Pont Tournant', '48.580550', '7.742021'),
+(null, 'Régent Petite France', '48.580792', '7.742225'),
+(null, 'La Corde A Linge', '48.581530', '7.741849'),
+(null, 'La Petite France', '48.581452', '7.741726'),
+(null, 'Restaurant Le Madras', '48.581253', '7.742938');
 
 INSERT INTO commande VALUES
 (null, 2, 467, '0'),
