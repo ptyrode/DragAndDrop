@@ -10,7 +10,7 @@ $(function() {
 	jQuery.urlShortener.settings.apiKey = 'AIzaSyCe1pMndOIp-0NKffYcEDDjkefoA6LuY6o';
 	$('#msg').delay(2000).hide(0);
 	$('#adresse2').hide();
-	$('#adresse3').hide();
+	//$('#adresse3').hide();
 
 	$('#checkbox2').change(function() {
 		if ($(this).is(":checked"))
@@ -29,11 +29,11 @@ $(function() {
 	});
 	$('input:radio').change(function() {
 		console.log($(this).attr("id"));
-		
 	});
 });
 
 function init_carte() {
+	var infowindow;
 	// On vérifie si le navigateur supporte la géolocalisation
 	if (navigator.geolocation) {
 
@@ -54,7 +54,6 @@ function init_carte() {
 				map : map,
 				title : "Vous êtes ici"
 			});
-			var infowindow;
 			var zoneMarqueurs = new google.maps.LatLngBounds();
 			var nbr = 1;
 			$("#relais").find("input").each(function(index) {
@@ -67,14 +66,18 @@ function init_carte() {
 					title : $(this).attr("value"),
 					icon : image
 				});
-				marker.set("id", "option"+nbr);
+				marker.set("id", "option" + nbr);
 				zoneMarqueurs.extend(marker.getPosition());
-				var infowindow = new google.maps.InfoWindow({
-					content : $(this).attr("value"),
+				infowindow = new google.maps.InfoWindow({
+					content : "test",
 					size : new google.maps.Size(100, 100)
 				});
 				google.maps.event.addListener(marker, 'click', function() {
 					infowindow.close();
+					infowindow = new google.maps.InfoWindow({
+						content : marker.title,
+						size : new google.maps.Size(100, 100)
+					});
 					infowindow.open(map, marker);
 					console.log(marker.get("id"));
 					jQuery("#" + marker.get("id")).attr('checked', 'checked');

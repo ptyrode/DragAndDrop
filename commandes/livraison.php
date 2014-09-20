@@ -174,7 +174,7 @@ if (!isset($_SESSION["email"])) {
 		 </div>
 		</div>
 		<div class="checkbox">
-		<label><input type="checkbox" id="checkbox3" checked="">Adresse de livraison identique </label>
+		<label><input type="checkbox" id="checkbox3">Adresse de livraison identique </label>
 		</div>
 		<div id="adresse3"><br>
 	<!-- Nav tabs -->
